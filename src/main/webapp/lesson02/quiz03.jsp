@@ -15,7 +15,7 @@
 	<div class="container">
 		<h1>체격 조건 입력</h1>
 		
-		<form method="get" action="/lesson01/quiz03_1.jsp">
+		<form method="get" action="/lesson02/quiz03_1.jsp">
 			<div class="d-flex">
 				<input type="text" class="form-control col-3" name="height" placeholder="키를 입력하세요."> cm 
 				<input type="text" class="form-control col-3" name="weight" placeholder="몸무게를 입력하세요."> kg
