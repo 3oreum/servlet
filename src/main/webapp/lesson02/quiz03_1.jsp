@@ -22,7 +22,7 @@
 	
 	double bmi = weight / ((height / 100.0) * (height / 100.0));
 	
-	if (bmi <= 20){
+	if (bmi <= 20){ 
 		out.print("저체중");
 	} else if (bmi <= 25){
 		out.print("정상");

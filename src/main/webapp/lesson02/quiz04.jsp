@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>체격 조건</title>
+<title>길이 변환</title>
 <!-- bootstrap -->
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
 <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
@@ -13,16 +13,19 @@
 </head>
 <body>
 	<div class="container">
-		<h1>체격 조건 입력</h1>
-		
-		<form method="get" action="/lesson02/quiz03_1.jsp">
+		<h1>길이 변환</h1>
+		<form method="post" action="/lesson02/quiz04_1.jsp">
 			<div class="d-flex align-items-end">
-				<input type="text" class="form-control col-3" name="height" placeholder="키를 입력하세요."> cm 
-				<input type="text" class="form-control col-3 ml-3" name="weight" placeholder="몸무게를 입력하세요."> kg
-				<input type="submit" value="계산" class="btn btn-info ml-3" >
+				<input type="text" class="form-control col-2 mr-2" name="length">cm
 			</div>
-			
-		</form>
+			<div class="mt-2">
+				<label>인치 <input type="checkbox" name="type" value="inch"></label>
+				<label>야드 <input type="checkbox" name="type" value="yard"></label>
+				<label>피트 <input type="checkbox" name="type" value="feet"></label>
+				<label>미터 <input type="checkbox" name="type" value="meter"></label>
+			</div>
+			<input type="submit" value="변환하기" class="btn btn-success">
+	</form>
 	</div>
 </body>
 </html>
