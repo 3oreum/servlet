@@ -64,10 +64,11 @@
 			
 			<table class="table text-center">
 				<thead>
-					<tr>
-						<th>id</th>
-						<th>표지</th>
-						<th>제목</th>
+				<%-- row class를 설정하면 12칸 기준으로 칸 영역을 잡을 수 있다. --%>
+					<tr class="row">
+						<th class="col-1">id</th>
+						<th class="col-2">표지</th>
+						<th class="col-9">제목</th>
 					</tr>
 				</thead>
 				<tbody>
@@ -77,10 +78,10 @@
 							
 						
 					%>
-					<tr>
-						<td><%= book.get("id") %></td>
-						<td><img src="<%= book.get("image") %>" width=40></td>
-						<td><a href="/lesson02/quiz08_1.jsp?id=<%= book.get("id")%>"> <%= book.get("title") %> </a></td>
+					<tr class="row">
+						<td class="col-1"><%= book.get("id") %></td>
+						<td class="col-2"><img src="<%= book.get("image") %>" width=50 alt="표지"></td>
+						<td class="col-9"><a href="/lesson02/quiz08_1.jsp?id=<%= book.get("id")%>"> <%= book.get("title") %> </a></td>
 					</tr>
 					<%
 					}

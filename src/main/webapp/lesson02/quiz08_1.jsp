@@ -59,7 +59,10 @@
 	    } 
 	};
 	list.add(map);
-
+	
+	
+		// 테이블에 보여줄 책 정보 뽑아내기
+		
 		int id = Integer.parseInt(request.getParameter("id"));
 		
 		
@@ -69,11 +72,11 @@
 	
 %>
 	<div class="d-flex container">
-		<img width="200" src="<%= book.get("image") %>">
+		<img width="300" src="<%= book.get("image") %>" alt="표지 이미지">
 		<div>
-			<span class="display-3"><b><%= book.get("title") %></b></span><br>
-			<span class="display-4 text-info"><%= book.get("author") %></span><br>
-			<h1 class="text-secondary"><%= book.get("publisher") %></h1>
+			<div class="display-1"><b><%= book.get("title") %></b></div>
+			<div class="display-2 text-info"><%= book.get("author") %></div>
+			<div class="display-4 text-secondary"><%= book.get("publisher") %></div>
 			
 		</div>
 		<%
