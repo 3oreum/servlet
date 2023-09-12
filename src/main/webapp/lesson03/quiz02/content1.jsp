@@ -1,26 +1,6 @@
 <%@page import="java.util.*"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<!DOCTYPE html>
-<html>
-<head>
-<meta charset="UTF-8">
-<title>layout2</title>
-<!-- bootstrap -->
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
-<script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-Fy6S3B9q64WdZWQUiU+q4/2Lc9npb8tCaSX9FK7E8HnRr0Jz8D6OP9dO5Vg3Q9ct" crossorigin="anonymous"></script>
-
-<style>
-a, a:hover {text-decoration:none}
-#wrap {height:1000px;}
-header {height:100px;}
-nav {height:40px;}
-.contents {min-height:500px;}
-footer {height:200px;}
-</style>
-</head>
-<body>
 <%
 // 아티스트 정보 
 
@@ -99,20 +79,44 @@ footer {height:200px;}
     musicInfo.put("composer", "아이유,이종훈,이채규");
     musicInfo.put("lyricist", "아이유");
     musicList.add(musicInfo);
-%>
-	<div id="wrap" class="container">
-		<header class="d-flex align-items-center">
-			<jsp:include page="header.jsp" />
-		</header>
-		<nav class="d-flex align-items-center">
-			<jsp:include page="menu.jsp" />
-		</nav>
-		<section class="contents">
-			<jsp:include page="content2.jsp" />
-		</section>
-		<footer>
-			<jsp:include page="footer.jsp" />
-		</footer>
-	</div>
-</body>
-</html>
+%>   
+			<%-- 아티스트 정보 영역 --%>
+			<div class="d-flex mt-4 border border-success p-3">
+				<%-- 이미지 --%>
+				<div>
+					<img src="<%= artistInfo.get("photo")%>" alt="사진" width="150">
+				</div>
+				<%-- 가수 정보 --%>
+				<div class="ml-3">
+					<h3><%= artistInfo.get("name") %></h3>
+					<div><%= artistInfo.get("agency") %></div>
+					<div><%= artistInfo.get("debute") %> 데뷔</div>
+				</div>
+			</div>
+			<%-- 곡 목록 --%>
+			<div class="mt-3">
+				<h4 class="font-weight-bold">곡 목록</h4>
+				<table class="table text-center">
+					<thead>
+						<tr>
+							<th>No.</th>
+							<th>제목</th>
+							<th>앨범</th>
+						</tr>
+					</thead>
+					<tbody>
+					
+					<%
+						for (Map<String, Object> item : musicList){
+					%>
+						<tr>
+							<td><%= item.get("id") %></td>
+							<td><a href="/lesson03/quiz02/layout2.jsp?title=<%= item.get("title")%>"><%= item.get("title") %></a></td>
+							<td><%= item.get("album") %></td>
+						</tr>
+					<%
+						}
+					%>
+					</tbody>
+				</table>
+			</div>

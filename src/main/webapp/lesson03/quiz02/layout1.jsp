@@ -12,11 +12,11 @@
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-Fy6S3B9q64WdZWQUiU+q4/2Lc9npb8tCaSX9FK7E8HnRr0Jz8D6OP9dO5Vg3Q9ct" crossorigin="anonymous"></script>
 
 <style>
-#wrap {height:1000px;}
-header {height:50px;}
-nav {height:50px;}
+a, a:hover {text-decoration:none}
+header {height:100px;}
+nav {height:40px;}
 .contents {min-height:500px;}
-footer {height:50px;}
+footer {height:200px;}
 </style>
 </head>
 <body>
@@ -99,65 +99,18 @@ footer {height:50px;}
     musicInfo.put("lyricist", "아이유");
     musicList.add(musicInfo);
 %>
-	<div id="wrap" class="container bg-secondary">
-		<header class="bg-danger d-flex align-items-center">
-			<h1 class="text-success mr-3">Melong</h1>
-			<form method="get" action="/lesson03/quiz01/">
-			<div class="d-flex ml-5">
-				<input type="text" class="form-control" name="keyword">
-				<input type="submit" class="btn btn-info" value="검색">
-			</div>			
-		</form>
+	<div id="wrap" class="container">
+		<header class="d-flex">
+			<jsp:include page="header.jsp" />
 		</header>
-		<nav class="bg-warning d-flex align-items-center">
-			<ul class="nav">
-				<li class="nav-item font-weight-bold "><a class="nav-link text-dark">멜롱챠트</a></li>
-				<li class="nav-item font-weight-bold"><a class="nav-link text-dark">최신음악</a></li>
-				<li class="nav-item font-weight-bold"><a class="nav-link text-dark">장르음악</a></li>
-				<li class="nav-item font-weight-bold"><a class="nav-link text-dark">멜롱DJ</a></li>
-				<li class="nav-item font-weight-bold"><a class="nav-link text-dark">뮤직어워드</a></li>
-			</ul>
+		<nav class="d-flex align-items-center">
+			<jsp:include page="menu.jsp" />
 		</nav>
-		<div class="bg-info contents">
-			<div class="d-flex p-3">
-				<img src="<%= artistInfo.get("photo")%>" alt="사진" width="200">
-				<div class="ml-3">
-					<h1><%= artistInfo.get("name") %></h1>
-					<div><%= artistInfo.get("agency") %></div>
-					<div><%= artistInfo.get("debute") %></div>
-				</div>
-			</div>
-			<div>
-				<h3>곡 목록</h3>
-				<table class="table text-center">
-					<thead>
-						<tr>
-							<th>no</th>
-							<th>제목</th>
-							<th>앨범</th>
-						</tr>
-					</thead>
-					<tbody>
-					
-					<%
-						for (Map<String, Object> item : musicList){
-							
-						
-					%>
-						<tr>
-							<td><%= item.get("id") %></td>
-							<td><a href="#"><%= item.get("title") %></a></td>
-							<td><%= item.get("album") %></td>
-						</tr>
-					<%
-						}
-					%>
-					</tbody>
-				</table>
-			</div>
-		</div>
-		<footer class="bg-success d-flex align-items-center">
-			<div>Copyright 2023. melong All Rights Reserved.</div>
+		<section class="contents">
+			<jsp:include page="content1.jsp" />
+		</section> 
+		<footer>
+			<jsp:include page="footer.jsp" />
 		</footer>
 	</div>
 </body>

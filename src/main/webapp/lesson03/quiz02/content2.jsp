@@ -1,26 +1,6 @@
 <%@page import="java.util.*"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<!DOCTYPE html>
-<html>
-<head>
-<meta charset="UTF-8">
-<title>layout2</title>
-<!-- bootstrap -->
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
-<script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-Fy6S3B9q64WdZWQUiU+q4/2Lc9npb8tCaSX9FK7E8HnRr0Jz8D6OP9dO5Vg3Q9ct" crossorigin="anonymous"></script>
-
-<style>
-a, a:hover {text-decoration:none}
-#wrap {height:1000px;}
-header {height:100px;}
-nav {height:40px;}
-.contents {min-height:500px;}
-footer {height:200px;}
-</style>
-</head>
-<body>
 <%
 // 아티스트 정보 
 
@@ -99,20 +79,53 @@ footer {height:200px;}
     musicInfo.put("composer", "아이유,이종훈,이채규");
     musicInfo.put("lyricist", "아이유");
     musicList.add(musicInfo);
+   
 %>
-	<div id="wrap" class="container">
-		<header class="d-flex align-items-center">
-			<jsp:include page="header.jsp" />
-		</header>
-		<nav class="d-flex align-items-center">
-			<jsp:include page="menu.jsp" />
-		</nav>
-		<section class="contents">
-			<jsp:include page="content2.jsp" />
-		</section>
-		<footer>
-			<jsp:include page="footer.jsp" />
-		</footer>
+<div class="mt-4">
+	<h3>곡 정보</h3>
+</div>
+<div class="d-flex border border-success p-3">
+	<%-- 이미지 영역 --%>
+<%
+	String title = request.getParameter("title");
+	//out.print(title);
+	for (Map<String, Object> item : musicList) {
+		if (item.get("title").equals(title)) {
+%>
+	<div>
+		<img src="<%= item.get("thumbnail")%>" alt="사진" width="200">
 	</div>
-</body>
-</html>
+
+	<div class="ml-3">
+		<h3><%= item.get("title")%></h3>
+		<div class="text-success"><%=musicInfo.get("singer")%></div>
+		<table class="text-secondary mt-4">
+
+			<tr>
+				<td>앨범</td>
+				<td><%= item.get("album") %></td>
+			</tr>
+			<tr>
+				<td class="pr-4">재생시간</td>
+				<td><%= item.get("time") %></td>
+			</tr>
+			<tr>
+				<td>작곡가</td>
+				<td><%= item.get("composer") %></td>
+			</tr>
+			<tr>
+				<td>작사가</td>
+				<td><%= item.get("lyricist") %></td>
+			</tr>
+<%
+					}
+				}
+%>
+		</table>
+	</div>
+</div>
+<div class="mt-3">
+	<h4 class="font-weight-bold">가사</h4>
+	<hr>
+	가사 정보 없음
+</div>
