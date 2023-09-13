@@ -12,8 +12,8 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.test.common.MysqlService;
 
-@WebServlet("/lesson04/Ex01")
-public class Ex01 extends HttpServlet{
+@WebServlet("/lesson04/ex01")
+public class Ex01 extends HttpServlet {
 	
 	@Override
 	public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException {
@@ -22,13 +22,13 @@ public class Ex01 extends HttpServlet{
 		
 		// DB 연결
 		MysqlService ms = MysqlService.getInstance();
-		ms.connect(); // *****실직적인 DB 연결 (꼭 넣어야 함)*****
+		ms.connect(); //★★★★ 실질적인 DB 연결 (꼭 넣어야함)
 		
 		// DB 인서트 쿼리 수행
-		String insertQuery = "insert into `uesd_goods`"
+		String insertQuery = "insert into `used_goods`"
 				+ "(`sellerId`, `title`, `description`, `price`)"
 				+ "values"
-				+ "(1, '고양이 간식 팝니다', '입맛이 까다로워서 잘 안먹어요ㅜ', 2000)";
+				+ "(1, '고양이 간식 팝니다', '입맛이 까다로워서 잘 안먹어요ㅠ', 2000)";
 		try {
 			ms.update(insertQuery);
 		} catch (SQLException e) {
@@ -40,13 +40,12 @@ public class Ex01 extends HttpServlet{
 		String query = "select * from `used_goods`";
 		try {
 			ResultSet res = ms.select(query);
-			while(res.next()) { // 결과 행이 있는 동안 계속 수행
+			while (res.next()) { // 결과 행이 있는 동안 계속 수행
 				out.println(res.getInt("id"));
 				out.println(res.getString("title"));
 				out.println(res.getInt("price"));
 				out.println(res.getString("description"));
 			}
-			
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}

@@ -10,9 +10,15 @@ public class MysqlService {
 	// 필드
 	private static MysqlService mysqlService = null;
 	
-	private String url = "jdbc:mysql://localhost:3306/test_230619"; // 도메인 뒤쪽에 접속할 데이터베이스 명까지 넣는다.
+	// 학원
+	//private String url = "jdbc:mysql://localhost:3306/test_230619"; // 도메인 뒤쪽에 접속할 데이터베이스 명까지 넣는다.
+	// 집
+	private String url = "jdbc:mysql://localhost:3306/test"; // 도메인 뒤쪽에 접속할 데이터베이스 명까지 넣는다.
 	private String id = "root";
-	private String password = "root";
+	// 학원 
+	//private String password = "root";
+	// 집
+	private String password = "rootroot";
 	
 	private Connection conn;
 	private Statement statement;
@@ -20,7 +26,7 @@ public class MysqlService {
 	
 	// 메소드
 	
-	// Singleton 패턴: MysqlService라는 객체가 단 한번만 생성되도록 하는 디자인 패턴(DB 연결을 여러 객체에서 하지 않도록 관리)
+	// Singleton 패턴: MysqlService라는 객체가 단 한번만 생성되도록 하는 디자인패턴(DB 연결을 여러 객체에서 하지않도록 관리)
 	public static MysqlService getInstance() {
 		if (mysqlService == null) {
 			mysqlService = new MysqlService();
