@@ -111,7 +111,7 @@
 					%>
 						<tr>
 							<td><%= item.get("id") %></td>
-							<td><a href="/lesson03/quiz02/layout2.jsp?title=<%= item.get("title")%>"><%= item.get("title") %></a></td>
+							<td><a href="/lesson03/quiz02/layout2.jsp?id=<%= item.get("id")%>"><%= item.get("title") %></a></td>
 							<td><%= item.get("album") %></td>
 						</tr>
 					<%

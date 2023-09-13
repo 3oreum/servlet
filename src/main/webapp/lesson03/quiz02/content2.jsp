@@ -87,41 +87,54 @@
 <div class="d-flex border border-success p-3">
 	<%-- 이미지 영역 --%>
 <%
-	String title = request.getParameter("title");
-	//out.print(title);
-	for (Map<String, Object> item : musicList) {
-		if (item.get("title").equals(title)) {
+	Map<String, Object> target = null;
+	// 1. 곡 목록에서 제목을 클릭하고 오는 경우(id로 조회)
+	if (request.getParameter("id") != null){
+		int id = Integer.parseInt(request.getParameter("id"));
+	
+		for (Map<String, Object> item : musicList) {
+			if (id == (int)item.get("id")) {
+				target = item;
+				break;
+			}
+	}
+}
+	
+	// 2. 상단에서 검색한 경우 (search값)
+	if (request.getParameter("search") != null){
+		String search = request.getParameter("search");
+		
+		for (Map<String, Object> music : musicList){
+			if (search.equals(music.get("title"))){
+				target = music;
+				break;
+			}
+		}
+	}
 %>
 	<div>
-		<img src="<%= item.get("thumbnail")%>" alt="사진" width="200">
+		<img src="<%= target.get("thumbnail")%>" alt="사진" width="200">
 	</div>
 
 	<div class="ml-3">
-		<h3><%= item.get("title")%></h3>
-		<div class="text-success"><%=musicInfo.get("singer")%></div>
-		<table class="text-secondary mt-4">
+		<div class="display-4"><%= target.get("title")%></div>
+		<div class="text-success font-weight-bold"><%=target.get("singer")%></div>
+		<div class="d-flex text-secondary">
+			<div class="mr-4">
+				<div>앨범</div>
+				<div>재생시간</div>
+				<div>작곡가</div>
+				<div>작사가</div>
+			</div>
+			<div>
+				<div><%= target.get("album") %></div>
+				<div><%= (int)target.get("time") / 60 %>:<%= (int)target.get("time") % 60 %></div>
+				<div><%= target.get("composer") %></div>
+				<div><%= target.get("lyricist") %></div>
+			</div>
+		</div>
+		
 
-			<tr>
-				<td>앨범</td>
-				<td><%= item.get("album") %></td>
-			</tr>
-			<tr>
-				<td class="pr-4">재생시간</td>
-				<td><%= item.get("time") %></td>
-			</tr>
-			<tr>
-				<td>작곡가</td>
-				<td><%= item.get("composer") %></td>
-			</tr>
-			<tr>
-				<td>작사가</td>
-				<td><%= item.get("lyricist") %></td>
-			</tr>
-<%
-					}
-				}
-%>
-		</table>
 	</div>
 </div>
 <div class="mt-3">
