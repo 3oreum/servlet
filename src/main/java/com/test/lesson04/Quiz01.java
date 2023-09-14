@@ -17,6 +17,7 @@ public class Quiz01 extends HttpServlet{
 
 	@Override
 	public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException {
+		// 응답값
 		response.setContentType("text/plain");
 		
 		// DB 연결
@@ -36,7 +37,7 @@ public class Quiz01 extends HttpServlet{
 		
 		// DB 셀렉트 쿼리 수행 & 출력
 		PrintWriter out = response.getWriter();
-		String query = "select * from `real_estate` order by id desc limit 10";
+		String query = "select * from `real_estate` order by `id` desc limit 10";
 		try {
 			ResultSet res = ms.select(query);
 			while(res.next()) {

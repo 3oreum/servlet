@@ -11,14 +11,14 @@ public class MysqlService {
 	private static MysqlService mysqlService = null;
 	
 	// 학원
-	//private String url = "jdbc:mysql://localhost:3306/test_230619"; // 도메인 뒤쪽에 접속할 데이터베이스 명까지 넣는다.
+	private String url = "jdbc:mysql://localhost:3306/test_230619"; // 도메인 뒤쪽에 접속할 데이터베이스 명까지 넣는다.
 	// 집
-	private String url = "jdbc:mysql://localhost:3306/test"; // 도메인 뒤쪽에 접속할 데이터베이스 명까지 넣는다.
+	//private String url = "jdbc:mysql://localhost:3306/test"; // 도메인 뒤쪽에 접속할 데이터베이스 명까지 넣는다.
 	private String id = "root";
 	// 학원 
-	//private String password = "root";
+	private String password = "root";
 	// 집
-	private String password = "rootroot";
+	//private String password = "rootroot";
 	
 	private Connection conn;
 	private Statement statement;
