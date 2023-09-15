@@ -15,8 +15,9 @@ public class BookmarkServlet extends HttpServlet{
 
 	@Override
 	public void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException {
+		// 응답 컨텐트 타입 생략(302니까)
 		
-		// request paramater
+		// request parameter
 		String name = request.getParameter("name");
 		String url = request.getParameter("url");
 		
@@ -24,7 +25,7 @@ public class BookmarkServlet extends HttpServlet{
 		MysqlService ms = MysqlService.getInstance();
 		ms.connect();
 		
-		// DB 인서트
+		// DB 인서트 -> 수행
 		String insertQuery = "insert into `bookmark` (`name`, `url`)"
 				+ "values ('" + name + "', '" + url + "')";
 		try {

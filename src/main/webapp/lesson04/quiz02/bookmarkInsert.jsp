@@ -18,11 +18,13 @@
 <div class="container">
 	<h1>즐겨찾기 추가</h1>
 		<form method="post" action="/lesson04/bookmark">
-			<div>사이트명:
-				<input type="text" class="form-control col-4" name="name">
+			<div class="form-group">
+				<label for="name">사이트명:</label>
+				<input type="text" class="form-control col-4" id="name" name="name">
 			</div>
-			<div>사이트 주소:
-				<input type="text" class="form-control col-6" name="url">
+			<div class="form-group">
+				<label for="url">사이트 주소:</label>
+				<input type="text" class="form-control col-6" id="url" name="url">
 			</div>
 			<input type="submit" value="추가" class="btn btn-success mt-3">
 		</form>
