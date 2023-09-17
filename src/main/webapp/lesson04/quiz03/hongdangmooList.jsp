@@ -14,8 +14,8 @@
 
 <style>
 #wrap {height:1000px;}
-header {height:150px;}
-nav {height:80px;}
+header {height:150px; background-color: #FF5E00}
+nav {height:80px; background-color: #FF5E00}
 .contents {min-height:500px;}
 footer {height:200px;}
 </style>
@@ -32,18 +32,18 @@ footer {height:200px;}
 	
 %>
 	<div class="container bg-secondary" id="wrap">
-		<header class="bg-danger d-flex justify-content-center align-items-center">
-			<h1>HONG당무 마켓</h1>
+		<header class="d-flex justify-content-center align-items-center">
+			<h1 class="text-white">HONG당무 마켓</h1>
 		</header>
-		<nav class="bg-info d-flex align-items-center">
+		<nav class="d-flex align-items-center">
 			<ul class="nav nav-fill w-100">
-				<li class="nav-item"><a href="" class="nav-link">리스트</a></li>
-				<li class="nav-item"><a href="" class="nav-link">물건 올리기</a></li>
-				<li class="nav-item"><a href="" class="nav-link">마이 페이지</a></li>
+				<li class="nav-item"><a href="" class="nav-link text-white">리스트</a></li>
+				<li class="nav-item"><a href="" class="nav-link text-white">물건 올리기</a></li>
+				<li class="nav-item"><a href="" class="nav-link text-white">마이 페이지</a></li>
 			</ul>
 		</nav>
-		<section class="bg-success contents">		
-			<div class="d-flex">
+		<section class="mt-4 bg-success contents d-flex justify-content-center">		
+			<div class="d-flex flex-wrap">
 			<%
 				while(res.next()){
 			%>
